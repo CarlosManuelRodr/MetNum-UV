@@ -1,0 +1,2 @@
+Para compilar el código con extensión .cpp se puede ejecutar desde una terminal:
+g++ FloatingPoint.cpp -o FloatingPoint
