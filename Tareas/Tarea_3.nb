@@ -1,0 +1,381 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13684,        373]
+NotebookOptionsPosition[     11128,        323]
+NotebookOutlinePosition[     11492,        339]
+CellTagsIndexPosition[     11449,        336]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Tarea 3", "Title",
+ CellChangeTimes->{{3.7924243375598907`*^9, 
+  3.7924243393093147`*^9}},ExpressionUUID->"1caa696a-273b-4eb8-9e08-\
+2eb62df49186"],
+
+Cell["M\[EAcute]todo de Newton-Rhapson", "Subtitle",
+ CellChangeTimes->{{3.792424344037581*^9, 
+  3.792424351088807*^9}},ExpressionUUID->"b0134bef-8671-4092-9801-\
+0460e94d282f"],
+
+Cell[TextData[{
+ "Primero definimos la funci\[OAcute]n a resolver. Se desea encontrar las ra\
+\[IAcute]ces de f(x) = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["x", "2"], "-", 
+     RowBox[{"Cos", "(", "x", ")"}]}], " ", "=", " ", "0"}], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "b9fc55dd-f121-46d1-9708-d5332d22487e"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.792424669782304*^9, 
+  3.792424695839471*^9}},ExpressionUUID->"4019c255-0b24-44d7-a6dc-\
+9cc06edc5691"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    SuperscriptBox["x", "2"], "-", 
+    RowBox[{"Cos", "[", "x", "]"}]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.792424371816265*^9, 3.7924243721819553`*^9}, {
+  3.792424455768387*^9, 3.7924244914653997`*^9}, {3.7924245215762053`*^9, 
+  3.79242460738591*^9}, {3.792424704906945*^9, 
+  3.7924247083857594`*^9}},ExpressionUUID->"78813fa4-4894-48bb-87c6-\
+bd7967f95d36"],
+
+Cell["\<\
+Se define una funci\[OAcute]n que realiza un paso del m\[EAcute]todo de \
+Newton-Rhapson:\
+\>", "Text",
+ CellChangeTimes->{{3.792424712728549*^9, 
+  3.792424728661675*^9}},ExpressionUUID->"79b1fb0e-206e-45f3-a386-\
+88de77ed0f68"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"NewtonRhapsonStep", "[", "x_", "]"}], ":=", 
+   RowBox[{"x", "-", 
+    FractionBox[
+     RowBox[{"f", "[", "x", "]"}], 
+     RowBox[{
+      RowBox[{"f", "'"}], "[", "x", "]"}]]}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.792424371816265*^9, 3.7924243721819553`*^9}, {
+  3.792424455768387*^9, 3.7924244914653997`*^9}, {3.7924245215762053`*^9, 
+  3.79242460738591*^9}, {3.792424704906945*^9, 
+  3.792424734587346*^9}},ExpressionUUID->"19fa8793-be36-4e2a-be74-\
+419952e25383"],
+
+Cell["Ejemplo de uso:", "Text",
+ CellChangeTimes->{{3.792424737479928*^9, 
+  3.792424753645011*^9}},ExpressionUUID->"4a36a10e-38ca-44ba-8dfe-\
+8030802043d5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NewtonRhapsonStep", "[", "0.5", "]"}]], "Input",
+ CellChangeTimes->{{3.7924247557417927`*^9, 3.792424757376655*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"7453ac33-0192-49eb-b9cd-6a41ab8225d3"],
+
+Cell[BoxData["0.9242069272931975`"], "Output",
+ CellChangeTimes->{3.792424757959234*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"6e8d08e6-a910-4450-b80a-c1e63d6cabf6"]
+}, Open  ]],
+
+Cell["\<\
+Repitiendo n veces el procedimiento y guardando las soluciones obtenemos las \
+iteraciones del m\[EAcute]todo de NR.\
+\>", "Text",
+ CellChangeTimes->{{3.7924247678896627`*^9, 
+  3.792424792629652*^9}},ExpressionUUID->"f401e1e8-7731-4660-8e80-\
+b09951ac79d4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"NewtonRhapson", "[", 
+    RowBox[{"x0_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"soluciones", " ", "=", " ", 
+        RowBox[{"{", "x0", "}"}]}], ",", 
+       RowBox[{"x", " ", "=", " ", "x0"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", " ", "=", " ", 
+          RowBox[{"NewtonRhapsonStep", "[", "x", "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"soluciones", ",", "x"}], "]"}], ";"}], " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+         "A\[NTilde]ado", " ", "el", " ", "nuevo", " ", "x", " ", "a", " ", 
+          "la", " ", "lista"}], " ", "*)"}], "\[IndentingNewLine]", ",", 
+        "\[IndentingNewLine]", "n"}], " ", 
+       RowBox[{"(*", " ", 
+        RowBox[{"N\[UAcute]mero", " ", "de", " ", "repeticiones"}], " ", 
+        "*)"}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "soluciones"}]}], "\[IndentingNewLine]", "]"}]}],
+   ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.792424371816265*^9, 3.7924243721819553`*^9}, {
+  3.792424455768387*^9, 3.7924244914653997`*^9}, {3.7924245215762053`*^9, 
+  3.79242460738591*^9}, {3.792424704906945*^9, 
+  3.792424734587346*^9}},ExpressionUUID->"1c2229c9-5db3-47b7-abf4-\
+1d57aaebeace"],
+
+Cell["Ejemplo de soluciones:", "Text",
+ CellChangeTimes->{{3.792424801085136*^9, 
+  3.792424806108828*^9}},ExpressionUUID->"1990dc4e-e957-47fa-8177-\
+f1a83bc897e5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"listaDeSoluciones", " ", "=", " ", 
+  RowBox[{"NewtonRhapson", "[", 
+   RowBox[{"0.2", ",", "10"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.792424608983942*^9, 3.7924246403914623`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"cd34ea3a-0768-414e-b548-2a263ae348ac"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.2`", ",", "1.7702601243875122`", ",", "1.033212831100177`", ",", 
+   "0.8433339058427878`", ",", "0.8243345563998916`", ",", 
+   "0.8241323352972675`", ",", "0.8241323123025227`", ",", 
+   "0.8241323123025224`", ",", "0.8241323123025224`", ",", 
+   "0.8241323123025224`", ",", "0.8241323123025224`"}], "}"}]], "Output",
+ CellChangeTimes->{{3.792424613562807*^9, 3.792424640598322*^9}},
+ CellLabel->"Out[7]=",ExpressionUUID->"72e7fa95-4713-4bc1-b1d8-d504777de58c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{"listaDeSoluciones", ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.792424641364444*^9, 3.792424649934774*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"df0438d4-fca3-445b-a932-1aae575d94f6"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{{}, {}, 
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+      LineBox[{{1., 0.2}, {2., 1.7702601243875122`}, {3., 
+       1.033212831100177}, {4., 0.8433339058427878}, {5., 
+       0.8243345563998916}, {6., 0.8241323352972675}, {7., 
+       0.8241323123025227}, {8., 0.8241323123025224}, {9., 
+       0.8241323123025224}, {10., 0.8241323123025224}, {11., 
+       0.8241323123025224}}]}}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      NCache[
+       Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6]}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[
+      1.6]}, {}}, {
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[
+      1.6]}, {}}}, {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.7916666666666667, 0},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0.7916666666666667, 11.}, {0, 1.7702601243875122`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.02], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.792424644871468*^9, 3.792424650177814*^9}},
+ CellLabel->"Out[9]=",ExpressionUUID->"46c9b58f-4c36-48d4-a41f-f6ba56f134a3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tarea:", "Subtitle",
+ CellChangeTimes->{{3.792424844543929*^9, 
+  3.792424845684422*^9}},ExpressionUUID->"933ec21f-8033-4db9-ab5e-\
+3fa5e76293db"],
+
+Cell["\<\
+Definir la funci\[OAcute]n para medir la raz\[OAcute]n de errores entre pasos:\
+\>", "Text",
+ CellChangeTimes->{{3.7924248486077623`*^9, 
+  3.792424961753893*^9}},ExpressionUUID->"aad2f5fd-c462-4218-bbba-\
+2479f2fb975a"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"Error", "(", 
+    SubscriptBox["x", 
+     RowBox[{"k", "+", "1"}]], ")"}], " ", "=", " ", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SubscriptBox["\[CapitalDelta]\[Epsilon]", 
+       RowBox[{"k", "+", "1"}]], " "}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"\[CapitalDelta]", " ", 
+        SubscriptBox["\[Epsilon]", "k"]}], ")"}], "2"]], "\[TildeEqual]", " ", 
+    RowBox[{"-", " ", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"f", "''"}], 
+       RowBox[{"(", 
+        SubscriptBox["x", 
+         RowBox[{"k", "+", "1"}]], ")"}]}], 
+      RowBox[{
+       RowBox[{"f", "'"}], 
+       RowBox[{"(", 
+        SubscriptBox["x", 
+         RowBox[{"k", "+", "1"}]], ")"}]}]]}]}]}], TraditionalForm]], "Input",\
+
+ CellChangeTimes->{{3.792424940442066*^9, 3.792424971449711*^9}, {
+  3.792425064861477*^9, 3.7924250711062098`*^9}, {3.7924251134841347`*^9, 
+  3.7924251564863167`*^9}},ExpressionUUID->"7c15a097-d199-4950-891b-\
+9a62f97235ef"],
+
+Cell["\<\
+y evaluar en los puntos de la lista de soluciones. Graficar el resultado.
+
+Hint: Para evaluar una funci\[OAcute]n con los elementos de una lista es \
+usual utilizar los mapeos. Map[g, {a,b,c,d}] aplica la funci\[OAcute]n g \
+sobre cada uno de los elementos de la lista {a,b,c,d}.\
+\>", "Text",
+ CellChangeTimes->{{3.7924251700843563`*^9, 
+  3.792425287667713*^9}},ExpressionUUID->"62c2b132-0d31-4b9a-8850-\
+da546d2fe85f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{"g", ",", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.792425269813181*^9, 3.792425281091935*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"0ab979bc-cff3-4fff-9bf7-fc59caa8eb95"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"g", "[", "a", "]"}], ",", 
+   RowBox[{"g", "[", "b", "]"}], ",", 
+   RowBox[{"g", "[", "c", "]"}], ",", 
+   RowBox[{"g", "[", "d", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.792425273311016*^9, 3.7924252816222754`*^9}},
+ CellLabel->"Out[12]=",ExpressionUUID->"1ec679e0-8257-4977-baf4-db69c916750b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{932, 1013},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.0 para Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 154, 3, 148, "Title",ExpressionUUID->"1caa696a-273b-4eb8-9e08-2eb62df49186"],
+Cell[737, 27, 178, 3, 81, "Subtitle",ExpressionUUID->"b0134bef-8671-4092-9801-0460e94d282f"],
+Cell[918, 32, 522, 15, 54, "Text",ExpressionUUID->"4019c255-0b24-44d7-a6dc-9cc06edc5691"],
+Cell[1443, 49, 484, 12, 100, "Input",ExpressionUUID->"78813fa4-4894-48bb-87c6-bd7967f95d36",
+ InitializationCell->True],
+Cell[1930, 63, 239, 6, 54, "Text",ExpressionUUID->"79b1fb0e-206e-45f3-a386-88de77ed0f68"],
+Cell[2172, 71, 547, 14, 103, "Input",ExpressionUUID->"19fa8793-be36-4e2a-be74-419952e25383",
+ InitializationCell->True],
+Cell[2722, 87, 157, 3, 54, "Text",ExpressionUUID->"4a36a10e-38ca-44ba-8dfe-8030802043d5"],
+Cell[CellGroupData[{
+Cell[2904, 94, 219, 3, 46, "Input",ExpressionUUID->"7453ac33-0192-49eb-b9cd-6a41ab8225d3"],
+Cell[3126, 99, 167, 2, 52, "Output",ExpressionUUID->"6e8d08e6-a910-4450-b80a-c1e63d6cabf6"]
+}, Open  ]],
+Cell[3308, 104, 268, 6, 54, "Text",ExpressionUUID->"f401e1e8-7731-4660-8e80-b09951ac79d4"],
+Cell[3579, 112, 1509, 37, 548, "Input",ExpressionUUID->"1c2229c9-5db3-47b7-abf4-1d57aaebeace",
+ InitializationCell->True],
+Cell[5091, 151, 164, 3, 54, "Text",ExpressionUUID->"1990dc4e-e957-47fa-8177-f1a83bc897e5"],
+Cell[CellGroupData[{
+Cell[5280, 158, 288, 5, 47, "Input",ExpressionUUID->"cd34ea3a-0768-414e-b548-2a263ae348ac"],
+Cell[5571, 165, 508, 9, 88, "Output",ExpressionUUID->"72e7fa95-4713-4bc1-b1d8-d504777de58c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6116, 179, 288, 5, 73, "Input",ExpressionUUID->"df0438d4-fca3-445b-a932-1aae575d94f6"],
+Cell[6407, 186, 2137, 53, 366, "Output",ExpressionUUID->"46c9b58f-4c36-48d4-a41f-f6ba56f134a3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8581, 244, 152, 3, 81, "Subtitle",ExpressionUUID->"933ec21f-8033-4db9-ab5e-3fa5e76293db"],
+Cell[8736, 249, 230, 5, 54, "Text",ExpressionUUID->"aad2f5fd-c462-4218-bbba-2479f2fb975a"],
+Cell[8969, 256, 1008, 31, 83, "Input",ExpressionUUID->"7c15a097-d199-4950-891b-9a62f97235ef"],
+Cell[9980, 289, 431, 9, 196, "Text",ExpressionUUID->"62c2b132-0d31-4b9a-8850-da546d2fe85f"],
+Cell[CellGroupData[{
+Cell[10436, 302, 293, 6, 73, "Input",ExpressionUUID->"0ab979bc-cff3-4fff-9bf7-fc59caa8eb95"],
+Cell[10732, 310, 356, 8, 74, "Output",ExpressionUUID->"1ec679e0-8257-4977-baf4-db69c916750b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
