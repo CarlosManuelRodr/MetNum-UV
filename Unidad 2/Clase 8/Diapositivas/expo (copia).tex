@@ -1,0 +1,473 @@
+\documentclass[xcolor=dvipsnames]{beamer} 
+\usepackage[spanish,mexico]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usecolortheme[named=Green]{structure} 
+\usetheme{Malmoe} 
+\setbeamertemplate{items}[ball] 
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\setbeamertemplate{navigation symbols}{}
+\author{Carlos Manuel Rodríguez Martínez}
+\institute{Universidad Veracruzana}
+\title{Sistemas complejos}
+\subtitle{The Nonlinear Workbook III}
+\date{\today}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\begin{frame}\maketitle\end{frame}
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Variedad}
+  \begin{itemize}
+  \item Es un objeto que generaliza la noción de curva y superficie.
+  \item Una variedad de dimensión $n$ es un espacio que se parece localmente a $\mathbb{R}$. (Wikipedia)
+      \begin{figure}
+        \includegraphics[scale=0.09]{img/variedad}
+    \end{figure}
+    \item Supongamos que existe una función $\phi_1$ tal que $V_1 = \phi_1 (U_1)$.
+    \item Un espacio $M$ es una variedad diferenciable si
+    \[
+    	M  = \cup_\alpha U_\alpha,
+    \]
+    y se pide que para $U_\alpha \cap U_\beta \neq \O$, el mapa $\phi_\beta \circ \phi_\alpha^{-1}$ sea suave.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Difeomorfismo}
+  \begin{itemize}
+  \item Dadas dos variedades $M$ y $N$, un difeomorfismo es una aplicación diferenciable $f:M \to N$ si es biyectiva y su inversa $f^{-1}:N \to M$ también es diferenciable.
+  \item Los mapeos con los que se trabajará en esta exposición son difeomorfismos.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Retrato de fase}
+  \begin{itemize}
+  \item Sea un mapa bidimensional
+  \[
+  	x_{t+1}^{(1)} = f_1 (x_t^{(1)}, x_t^{(2)}), \quad x_{t+1}^{(2)} = f_2 (x_t^{(1)}, x_t^{(2)}),
+  \]
+  donde $t \in \mathbb{Z}^+$. A la gráfica de los puntos $(x_{t+1}^{(1)}, x_{t+1}^{(2)})$ se le denomina retrato de fase.
+  \item Ejemplos: Mapa de Henón, $f(x,y) = (y+1-a x^2, bx)$.
+    \begin{figure}
+        \includegraphics[scale=0.3]{img/Henon}
+    \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Retrato de fase}
+  \begin{itemize}
+  \item Mapa de Lozi, $f(x,y) = (y+1-a |x|, bx)$.
+    \begin{figure}
+        \includegraphics[scale=0.25]{img/Lozi}
+    \end{figure}
+  \item Mapa Standard, $f(I, \theta) = (I + k \sin (\theta), \theta + I + k \sin (\theta))$.
+  \begin{figure}
+        \includegraphics[scale=0.25]{img/Standard}
+    \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Retrato de fase}
+  \begin{itemize}
+  \item Ikeda Laser Map. Dado por
+  \begin{align*}
+  	x_{t+1} &= \rho + c_2 (x_t \cos(\tau_t) - y_t \sin (\tau_t)), \\
+  	y_{t+1} &= c_2 (x_t \sin (\tau_t) + y_t \cos(\tau_t)),
+  \end{align*}
+  donde
+  \[
+  	\tau_t = c_1 - \frac{c_3}{1+x_t^2+y_t^2}.
+  \]
+    \begin{figure}
+        \includegraphics[scale=0.25]{img/Ikeda}
+    \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Retrato de fase}
+  \begin{itemize}
+  \item El mapa logístico acoplado. Dado por
+  \begin{align*}
+  	x_{t+1} &= r x_t (1-x_t) + e(y_t - x_t) \\
+  	y_{t+1} &= r y_t (1-y_t) + e(x_t - y_t),
+  \end{align*}
+      \begin{figure}
+        \includegraphics[scale=0.25]{img/Coupled}
+    \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Billares dinámicos}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Los billares son sistemas dinámicos que muestran una dinámica compleja.
+      \item Sufren reflexiones cuando la partícula se encuentra en los bordes del sistema.
+      \[
+	V(q) = \begin{cases}
+0 , &  q \in \Omega \\ 
+\infty , &  q \notin \Omega 
+\end{cases}
+\]
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.35]{img/BillarCircCortadoUp}
+        \caption{Billar circular cortado.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Billares dinámicos II}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Al ser un sistema potencialmente caótico también presentan alta sensibilidad a condiciones iniciales.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.35]{img/DiscoCortadoTray}
+        \caption{Diferencia de trayectorias.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Coordenadas de Birkhoff I}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item Son útiles para describir la dinámica de un billar.
+      \item Están definidas como
+      \begin{align*}
+		s &= \mbox{fracción de arco}, \\
+		p &= \alpha \cos \theta,
+	  \end{align*}
+      donde $\alpha$ es la magnitud total del momento y $\theta$ es el ángulo entre el vector velocidad y la normal a la colisión.
+      \item Se puede visualizar la trayectoria del billar como retrato de fase $(s_{t+1},p_{t+1}) = f(s_t,p_t)$.
+	  \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.35]{img/birkhoff}
+        \caption{Coordenadas de Birkhoff}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Coordenadas de Birkhoff II}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.35]{img/caos_suave_birkhoff}
+        \caption{Mapa de Birkhoff para caos suave.}
+      \end{figure}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.35]{img/caos_duro_birkhoff}
+        \caption{Mapa de Birkhoff para caos duro.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Análisis de estabilidad}
+  \begin{itemize}
+  \item Sea un sistema dinámico dado por
+  \[
+  	\frac{d \vec{x}}{dt} = \vec{f}(\vec{x}),
+  \]
+  donde $\vec{x} \in U$, con puntos fijos $\vec{x}^*$ para los cuales
+  \[
+  	\vec{f}(\vec{x}^*) = 0 \, \Rightarrow \, \frac{d \vec{x}^*}{dt} = 0.
+  \]
+  \item Haciendo que $\vec{x} = \vec{x}^* + \Delta \vec{x}$, y expandiendo alrededor de $\vec{x}^*$ queda
+  \[
+  	\vec{f}(\vec{x}^* + \Delta \vec{x}) = \vec{f}(\vec{x}^*) + D \vec{f}(\vec{x}^*) \Delta \vec{x} + \cdots
+  \]
+  \item $D \vec{f}(\vec{x}^*)$ es el Jacobiano.
+  \[
+  	\mathbf J = D \vec{f}(\vec{x}) =  \frac{d\mathbf f}{d\mathbf x} = \begin{bmatrix}
+    \dfrac{\partial \mathbf{f}}{\partial x_1} & \cdots & \dfrac{\partial \mathbf{f}}{\partial x_n} \end{bmatrix}
+= \begin{bmatrix}
+    \dfrac{\partial f_1}{\partial x_1} & \cdots & \dfrac{\partial f_1}{\partial x_n}\\
+    \vdots & \ddots & \vdots\\
+    \dfrac{\partial f_m}{\partial x_1} & \cdots & \dfrac{\partial f_m}{\partial x_n} \end{bmatrix}
+  \]
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Análisis de estabilidad}
+  \begin{itemize}
+  \item Al tomar los términos a primer orden queda
+  \[
+  	\frac{d}{dt}(\vec{x}^* + \Delta \vec{x}) = \vec{f}(\vec{x}^*) + D \vec{f}(\vec{x}^*) \Delta \vec{x},
+  \]
+  pero
+  \[
+  	\vec{f}(\vec{x}^*) = 0, \,\frac{d \vec{x}^*}{dt} = 0,
+  \]
+  entonces queda
+  \[
+  	\frac{d \Delta \vec{x}}{dt} = \vec{J}(\vec{x}^*) \cdot \Delta \vec{x}.
+  \]
+  \item Esto es una ecuación diferencial cuya solución es
+  \[
+  	\Delta \vec{x} = \hat{u} e^{\lambda t},
+  \]
+  donde $\lambda$ son los eigenvalores de $\vec{J}(\vec{x}^*)$, es decir, las soluciones a
+  \[
+  	|\vec{J}(\vec{x}^*) - \lambda \mathbb{I}| = 0.
+  \]
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Definiciones y teoremas}
+  \begin{itemize}
+  \item Un punto fijo $\vec{x}^*$ de un difeomorfismo $\vec{f}$ es hiperbólico si el mapa $D \vec{f}(\vec{x}^*)$ es hiperbólico y lineal.
+  \item Un difeomorfismo lineal $A: \mathbb{R}^n \to \mathbb{R}^n$ es hiperbólico si no tiene eigenvalores con módulo igual a 1.
+  \item Ejemplo: En el mapa de Henón los puntos fijos son
+  \[
+  	x^* = \frac{(b-1) \pm \sqrt{(1-b)^2 + 4a}}{2a}, \quad y^* = b x^*.
+  \]
+  El Jacobiano
+  \[
+  	J = \begin{pmatrix}
+  		-2ax & 1 \\
+  		b & 0
+  	\end{pmatrix}
+  \]
+  cuyos eigenvalores son
+  \[
+  \lambda_{1,2} = -a x^* \pm \sqrt{b + (a x^*)^2}
+  \]
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Definiciones y teoremas: Teorema de Hartman-Grobman}
+  Sea $\vec{x} \in \mathbb{R}^n$. Considere un sistema no lineal $\dot{\vec{x}} = f(\vec{x})$ con flujo $\phi_t$. Ahora considere el sistema lineal $\dot{\vec{x}} = J(\vec{x}^*) \vec{x}$. Sean $U \in \mathbb{R}^n$, $V \in \mathbb{R}^n$. Entonces existe un homeomorfismo $H: U \to V$ tal que
+  \[
+  	H(\phi_t(\vec{x_0})) = e^{\vec{J}(\vec{x}^*) t} H (\vec{x_0}).
+  \]
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Definiciones y teoremas: Teorema de la variedad invariante}
+  Sea $f: U \to \mathbb{R}^n$ un difeomorfismo con punto fijo hiperbólico $\vec{x}^* \in U$. Entonces en una vecindad lo suficientemente pequeña $N \subseteq  U$ existen variedades localmente estables e inestables.
+  \[
+  	W_{loc}^s (\vec{x}^*) = \{\vec{x} \in U | \vec{f}^{(t)}(\vec{x}) \to \vec{x}^* \operatorname{cuando} t \to \infty  \},
+  \]
+  \[
+  	W_{loc}^u (\vec{x}^*) = \{\vec{x} \in U | \vec{f}^{(t)}(\vec{x}) \to \vec{x}^* \operatorname{cuando} t \to -\infty  \},
+  \]
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Definiciones y teoremas: Teorema de la bifurcación de Hopf}
+  \begin{itemize}
+  	\item Sea $\dot{\vec{r}} = \vec{f}(\vec{r})$ un sistema dinámico. $\vec{r}$ está en coordenadas cartesianas.
+  	\item El sistema dinámico es
+  	\begin{align*}
+  		\dot{r} &= \mu r - r^3 \\
+  		\dot{\theta} &= \omega + b r^2.
+  	\end{align*}
+	\begin{figure}
+        \includegraphics[scale=0.25]{img/Hopf1}
+    \end{figure}  	
+  	\item Dado un punto inicial ¿Con qué parámetros $\mu$, $\omega$ y $b$ es estable o inestable?
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Definiciones y teoremas: Teorema de la bifurcación de Hopf}
+  \begin{itemize}
+  	\item En el análisis de estabilidad se vio que el eigenvalor del Jacobiano nos da la respuesta.
+  	\item Para poder calcularlo más fácilmente nos pasamos a coordenadas cartesianas
+  	\begin{align*}
+  		\dot{x} &= \mu x - \omega y + O(3) \\
+  		\dot{y} &= \omega x + \mu y + O(3)
+  	\end{align*}
+  	\item El Jacobiano es
+  	\[
+  		J(r=0, \theta=0) = \begin{pmatrix}
+  			\mu & - \omega \\
+  			\omega & \mu
+  		\end{pmatrix}
+  	\]
+  	cuyos eigenvalores son $\lambda = \mu \pm i \omega$.
+  	\item Si $\operatorname{Re}(\lambda) = \mu < 0$ es estable. Si $\operatorname{Re}(\lambda) = \mu > 0$ es inestable.
+  	\item El teorema nos asegura que siempre existe un cambio de coordenadas en el cual podemos identificar parámetros con los cuales podemos averiguar la naturaleza de las órbitas dependiendo de su signo.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Exponente de Lyapunov}
+  \begin{itemize}
+  	\item Sea un sistema de ecuaciones
+  	\[
+  		x_{t+1} = f_1(x_t,y_t), \quad y_{t+1} = f_2(x_t,y_t).
+  	\]
+  	\item Sus derivadas son
+  	\begin{align*}
+  		\frac{\partial f_1}{\partial t} &= u_{t+1} = \frac{\partial f_1}{\partial x} u_t + \frac{\partial f_1}{\partial y} v_t \\
+  		\frac{\partial f_2}{\partial t} &= v_{t+1} = \frac{\partial f_2}{\partial x} u_t + \frac{\partial f_2}{\partial y} v_t
+  	\end{align*}
+  	\item El exponente de Lyapunov está dado por
+  	\[
+  		\lambda = \lim_{T \to \infty} \frac{1}{T} \log (|u_T| + |v_T|).
+  	\]
+  	\item Ejemplo: Para el mapa de Henón el exponente de Lyapunov es $\lambda = 0.42$.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Dimensiones no enteras}
+  \begin{itemize}
+  	\item La dimensión de un objeto se define informalmente como el número mínimo de coordenadas necesarias para especificar cualquier punto del mismo.
+  	\item Un punto tiene dimensión cero, una línea dimensión 1, cuadrado dimensión 2 y un cubo dimensión 3.
+  	\item ¿Cuál es la dimensión de la costa de Gran Bretaña?
+  	\begin{figure}
+        \includegraphics[scale=0.06]{img/DimUK}
+    \end{figure}
+    \item La costa no es una curva de dimensión 1 porque la longitud no converge. Tampoco tiene área de dimensión 2. Su dimensión ha de ser un número entre el 1 y 2.
+    \item A este número se le conoce como dimensión fractal.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{¿Qué es un fractal?}
+\begin{figure}
+  \includegraphics[width=\textwidth]{img/fractal.jpg}
+  \caption{Fractal. Conjunto de Julia.}
+ \end{figure}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Dimensión fractal}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+      \item La dimensión por conteo de cajas está definida por
+      \[ D = \lim_{\varepsilon \rightarrow  0} \frac {\log N(\varepsilon)}{\log (1/\varepsilon)}. \]
+      \item Es una forma de caracterizar al caos.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \includegraphics[scale=0.16]{img/dimension91}
+        \caption{Cálculo de la dimensión fractal, $N=91$.}
+      \end{figure}
+      \begin{figure}
+        \includegraphics[scale=0.16]{img/dimension497}
+        \caption{Cálculo de la dimensión fractal, $N=497$.}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Gráfica de recurrencia}
+  \begin{itemize}
+  	\item Muestra en un momento dado los tiempos en los cuales la órbita visita una posición cercana en el espacio fase.
+  	\[
+  		\vec{x}(t) \approx \vec{x}(\tau).
+  	\]
+  	\item Es una gráfica de la cantidad
+  	\[
+		R(t, \tau) = H(\epsilon - |\vec{x}(t) - \vec{x}(\tau)|),  	
+  	\]  	
+  	donde
+  	\[
+  		H(x)=\begin{cases} 0, & x < 0, \\ 1, & x \ge 0. \end{cases}
+  	\]
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Gráfica de recurrencia}
+  \begin{itemize}
+  	\item Para el mapa de Henón
+  	\begin{figure}[h!]
+  	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/Henon}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/RecurrenceHenon}
+	\end{subfigure}
+	\end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Gráfica de recurrencia}
+  \begin{itemize}
+  	\item Para una serie financiera
+  	\begin{figure}[h!]
+  	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/IPC}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/RecurrenceIPC}
+	\end{subfigure}
+	\end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Integral de correlación}
+  \begin{itemize}
+  	\item Mide las correlaciones entre los puntos.
+  	\item Está definida por
+  	\[
+  		c(\epsilon) = \lim_{T \to \infty} \frac{1}{T^2} \sum_{i,j=1}^T H(\epsilon - |x_i - x_j|).
+   	\]
+   	\item El comportamiento de la función $c(\epsilon)$ es aproximadamente
+   	\[
+   		c(\epsilon) = a \epsilon^v,
+   	\]
+   	donde $v$ es la dimensión por conteo de cajas.
+   	\item Para el mapa de Henón
+    \begin{figure}
+        \includegraphics[scale=0.25]{img/CorrIntegral}
+    \end{figure}
+    se encuentra que $v = 1.24508$.
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}

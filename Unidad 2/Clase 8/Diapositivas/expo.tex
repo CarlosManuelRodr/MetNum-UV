@@ -1,0 +1,279 @@
+\documentclass[xcolor=dvipsnames]{beamer} 
+\usepackage[spanish,mexico]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usecolortheme[named=Green]{structure} 
+\usetheme{Malmoe} 
+\setbeamertemplate{items}[ball] 
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\setbeamertemplate{navigation symbols}{}
+\author{Carlos Manuel Rodríguez Martínez}
+\institute{Facultad de Física - Universidad Veracruzana}
+\title{Métodos Numéricos}
+\subtitle{Sistemas dinámicos, caos y sección de Poincaré}
+\date{\today}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\begin{document}
+
+\begin{frame}\maketitle\end{frame}
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivación}
+  \begin{itemize}
+  \item La interacción gravitacional entre dos cuerpos está dada por
+  \[
+  	\vec{F}_{12} = -\frac{G m_1 m_2}{|\vec{r_2}-\vec{r_1}|^2} \hat{\vec{r_{12}}}
+  \]
+  \begin{figure}
+        \includegraphics[scale=0.13]{img/grav}
+  \end{figure}
+  \item Entonces considérese la interacción entre tres cuerpos
+  \[
+  	\ddot{\vec{r}}_\vec{1} = -\frac{G m_2 \left(\vec{r_1} - \vec{r_2}\right)}{\left|\vec{r_1} - \vec{r_2}\right|^3}-\frac{G m_3 \left(\vec{r_1} - \vec{r_3}\right)}{\left|\vec{r_1} - \vec{r_3}\right|^3}
+  \]
+   \[
+  	\ddot{\vec{r}}_\vec{2} = -\frac{G m_3 \left(\vec{r_2} - \vec{r_3}\right)}{\left|\vec{r_2} - \vec{r_3}\right|^3}-\frac{G m_1 \left(\vec{r_2} - \vec{r_1}\right)}{\left|\vec{r_2} - \vec{r_1}\right|^3}
+  \]
+  \[
+  	\ddot{\vec{r}}_\vec{3} = -\frac{G m_1 \left(\vec{r_3} - \vec{r_1}\right)}{\left|\vec{r_3} - \vec{r_1}\right|^3}-\frac{G m_2 \left(\vec{r_3} - \vec{r_2}\right)}{\left|\vec{r_3} - \vec{r_2}\right|^3}
+  \]
+  
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivación}
+  \begin{itemize}
+  \item Son 9 ecuaciones diferenciales acopladas.
+  \item Un ejemplo de lo complicado que puede llegar a ser
+  \begin{figure}
+        \includegraphics[scale=0.26]{img/Figure}
+  \end{figure}
+  
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Motivación}
+  \begin{itemize}
+  \item ¿Cómo saber si esta cosa es estable?
+  \begin{figure}
+        \includegraphics[scale=0.07]{img/solar-system}
+  \end{figure}
+  \item Una herramienta para analizar este tipo de dinámica complicada es la sección de Poincaré.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré}
+  \begin{itemize}
+  \item Supongamos que tenemos un oscilador armónico. $\frac{d^2 x(t)}{dt^2} = - k x(t)$.
+   \begin{figure}
+        \includegraphics[scale=0.2]{img/oscillator}
+  \end{figure}
+  \item Su órbita es
+  \begin{figure}
+        \includegraphics[scale=0.30]{img/oscilador_orbita}
+  \end{figure}
+  \item En el espacio fase
+  \begin{figure}
+        \includegraphics[scale=0.25]{img/oscilador_espacio_fase}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré}
+  \begin{itemize}
+  \item Vamos a ir tomando muestras cada vez que se cumpla cierto evento, tal que de las muestras se obtenga un mapeo que caracterice la dinámica del sistema.
+  \item En el caso del oscilador dado que es periódico con periodo $2 \pi$, se puede tomar muestras cada $2 \pi$.
+  \item El resultado es el siguiente
+  \begin{figure}
+        \includegraphics[scale=0.3]{img/oscilador_poincare}
+  \end{figure}
+  \item Es decir, la dinámica de este sistema se puede caracterizar por un mapeo que siempre mapea al mismo punto.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré}
+  \begin{itemize}
+  \item Ahora veamos un sistema más complicado, el oscilador de Duffing.
+  \begin{figure}
+        \includegraphics[scale=0.15]{img/duffing_model}
+  \end{figure}
+  cuya ecuación de movimiento es $\ddot{x}(t) + \delta \dot{x}(t) + \alpha x(t) + \beta x(t)^3 = \gamma \cos (t)$.
+  \item ¿Cómo tomar la sección de Poincaré? Primero se observa que si se tiene una solución $x(t)$ entonces $x(t+2 \pi)$ también es solución.
+  \begin{align*}
+  	&\ddot{x}(t+2 \pi) + \delta \dot{x}(t+2 \pi) + \alpha x(t+2 \pi) + \beta x(t+2 \pi)^3 \\
+  	&= \gamma \cos (t+2 \pi) \\
+  	&\ddot{x}(t+2 \pi) + \delta \dot{x}(t+2 \pi) + \alpha x(t+2 \pi) + \beta x(t+2 \pi)^3 = \gamma \cos (t)
+  \end{align*}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré}
+  \begin{itemize}
+  \item Y cambiando $x(t+2\pi) = x_1(t)$ queda
+  \[
+  	\ddot{x_1}(t) + \delta \dot{x_1}(t) + \alpha x_1(t) + \beta x_1(t)^3 = \gamma \cos (t).
+  \]
+  \item Sea $x_N(t) = x(t+2 N \pi)$, esto quiere decir que si se resuelve la ecuación diferencial a partir de cualquiera de los puntos $x_N$ siempre estaremos describiendo al mismo sistema. Por lo tanto tomar la sección de Poincaré cada $2 \pi$ nos dará un mapa representativo de la dinámica del sistema.
+  \item La órbita es
+    \begin{figure}
+        \includegraphics[scale=0.30]{img/duffing_orbita}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré}
+  \begin{itemize}
+  \item Su trayectoria en el espacio fase
+  \begin{figure}
+        \includegraphics[scale=0.30]{img/duffing_espacio_fase2}
+  \end{figure}
+  \item La sección de Poincaré
+  \begin{figure}
+        \includegraphics[scale=0.30]{img/duffing_poincare}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item Volviendo al problema de 3 cuerpos
+    \[
+  	\ddot{\vec{r}}_\vec{1} = -\frac{G m_2 \left(\vec{r_1} - \vec{r_2}\right)}{\left|\vec{r_1} - \vec{r_2}\right|^3}-\frac{G m_3 \left(\vec{r_1} - \vec{r_3}\right)}{\left|\vec{r_1} - \vec{r_3}\right|^3}
+  \]
+   \[
+  	\ddot{\vec{r}}_\vec{2} = -\frac{G m_3 \left(\vec{r_2} - \vec{r_3}\right)}{\left|\vec{r_2} - \vec{r_3}\right|^3}-\frac{G m_1 \left(\vec{r_2} - \vec{r_1}\right)}{\left|\vec{r_2} - \vec{r_1}\right|^3}
+  \]
+  \[
+  	\ddot{\vec{r}}_\vec{3} = -\frac{G m_1 \left(\vec{r_3} - \vec{r_1}\right)}{\left|\vec{r_3} - \vec{r_1}\right|^3}-\frac{G m_2 \left(\vec{r_3} - \vec{r_2}\right)}{\left|\vec{r_3} - \vec{r_2}\right|^3}
+  \]
+  \item Una manera de enfrentarlo es haciendo que $m_3 << m1, m2$.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item Esto simplifica mucho el problema, ya que desacopla las dos primeras ecuaciones.
+    \[
+  	\ddot{\vec{r}}_\vec{1} = -\frac{G m_2 \left(\vec{r_1} - \vec{r_2}\right)}{\left|\vec{r_1} - \vec{r_2}\right|^3}, \quad \ddot{\vec{r}}_\vec{2} = -\frac{G m_1 \left(\vec{r_2} - \vec{r_1}\right)}{\left|\vec{r_2} - \vec{r_1}\right|^3}
+  \]
+  \[
+  	\ddot{\vec{r}}_\vec{3} = -\frac{G m_1 \left(\vec{r_3} - \vec{r_1}\right)}{\left|\vec{r_3} - \vec{r_1}\right|^3}-\frac{G m_2 \left(\vec{r_3} - \vec{r_2}\right)}{\left|\vec{r_3} - \vec{r_2}\right|^3}
+  \]
+  \item Las primeras dos ecuaciones son el problema de 2 cuerpos, que tiene solución analítica.
+  \begin{figure}
+        \includegraphics[scale=0.4]{img/2body}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item Con respecto a las masas grandes se harán las siguientes simplificaciones.
+  \[
+  	\left|\vec{r_1} - \vec{r_2}\right| = 1, \quad \omega = \frac{2 \pi}{T} = \sqrt{\frac{G(m_1+m_2)}{\left|\vec{r_1} - \vec{r_2}\right|^3}} = 1,
+  \]
+  \[
+  	G(m_1 + m_2) = 1, \quad \alpha = \frac{m_2}{m_1+m_2},
+  \]
+  de manera que
+  \[
+  	G m_2 = \frac{G m_2}{G (m_1+m_2)} = \alpha, \quad G m_1 = 1- \alpha.
+  \]
+  \item Por último se escoge un sistema de referencia en el cual las dos masas grandes están estáticas.
+  \begin{figure}
+        \includegraphics[scale=0.2]{img/2body_rot}
+  \end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item Entonces la relación entre ambos sistemas de referencia es
+  \[
+  	x(t) = x'(t) \cos t - y'(t) \sin t, \quad y(t) = x'(t) \sin t + y'(t) \cos t.
+  \]
+  \item La interacción gravitacional en este sistema de referencia es
+  \begin{align*}
+  	\ddot{x}' &= 2 \dot{y}'(t)- \frac{\alpha  (\alpha +x'(t)-1)}{\left((\alpha +x'(t)-1)^2 + y'(t)^2 \right)^{3/2}} \\
+  	&-\frac{(1-\alpha ) (\alpha +x'(t))}{\left((\alpha +x'(t))^2+y'(t)^2\right)^{3/2}}+x'(t) \\
+  	\ddot{y}' &= -2 \dot{x}'(t)-\frac{(1-\alpha ) y'(t)}{\left((\alpha +x'(t))^2+y'(t)^2\right)^{3/2}}+y'(t) \\
+  	& -\frac{\alpha  y'(t)}{\left((\alpha +x'(t)-1)^2+y'(t)^2\right)^{3/2}}.
+  \end{align*}
+  \item Este es el problema de 3 cuerpos restringido.
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item Esta solución contiene órbitas perióticas y caóticas
+    \begin{figure}[h!]
+  	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/orbita_estable}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[scale=0.3]{img/orbita_caotica}
+	\end{subfigure}
+	\caption{Órbita estable y caótica. Depende del valor de $\alpha$.}
+	\end{figure}
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{itemize}
+  \item El problema de 3 cuerpos restringido conserva una cantidad que se llama constante o integral de Jacobi.
+  \begin{figure}
+        \includegraphics[scale=0.3]{img/jacobi}
+  \end{figure}
+  \begin{align*}
+  	C_J &= \frac{2 \pi}{T}(x'^2 + y'^2) + 2 G \left( \frac{m_1}{r_1} + \frac{m_2}{r_2} \right) - \dot{x'}^2 - \dot{y'}^2 \\
+  	&= x'^2 + y'^2 + 2 \frac{r_2 + \alpha}{r_1 r_2} - \dot{x'}^2 - \dot{y'}^2.
+  \end{align*}
+  \item Cuando la órbita pasa por el punto $y=0$ la velocidad en $y$ puede tener dos valores.
+  \[
+  	\dot{y} = \pm \sqrt{x'^2 + 2 \frac{r_2 + \alpha}{r_1 r_2} - \dot{x'}^2 - C_J}.
+  \]
+  \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  Entonces si nos fijamos en los valores $(x'(t), \dot{x'}(t))$ cada vez que $y(t)=0$ con $\dot{y}(t) > 0$ ó $\dot{y}(t) < 0$ tendremos un mapa que describe por completo la dinámica del sistema.
+  \begin{figure}
+        \includegraphics[scale=0.4]{img/orbita_estable_poincare}
+        \caption{$\alpha = 1$.}
+  \end{figure}
+\end{frame}
+
+%-----------------------------------------------------------------------------
+\begin{frame}{Sección de Poincaré para 3 cuerpos}
+  \begin{figure}
+        \includegraphics[scale=0.4]{img/orbita_inestable_poincare}
+        \caption{$\alpha = 1.25$.}
+  \end{figure}
+\end{frame}
+
+
+
+\end{document}
