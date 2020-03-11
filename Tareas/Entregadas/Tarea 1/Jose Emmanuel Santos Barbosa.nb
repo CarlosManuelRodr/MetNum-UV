@@ -1,0 +1,30 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{RowBox[{"l","=",RowBox[{"{",RowBox[
+{"0.058374",",",RowBox[{"-","0.14112"}],",",RowBox[{"-","0.33498815"}],",",RowBox[
+{"-","0.5155"}],",",RowBox[{"-","0.67546318"}],",",RowBox[{"-","0.8084964"}],",",RowBox[
+{"-","0.90929743"}],",",RowBox[{"-","0.97384763"}],",",RowBox[{"-","0.9995736"}],",",RowBox[
+{"-","0.9854497299"}],",",RowBox[{"-","0.9320"}],",",RowBox[{"-","0.84147"}],","," ",RowBox[
+{"-","0.717356"}],",",RowBox[{"-","0.56464248"}],","," ",RowBox[{"-","0.3894183423"}],",",RowBox[
+{"-","0.19866933"}],","," ","0",",","0.19866933",",","0.3894183423",",","0.56464248",",","0.717356",",","0.84147",",","0.9320",",","0.9854497299",",","0.9995736",",","0.97384763",",","0.90929743",",","0.8084964",",","0.67546318",",","0.5155",",","0.33498815",",","0.14112",",",RowBox[
+{"-","0.058374"}]}]," ","}"}]}],";"}],"\n",RowBox[{RowBox[{"ListLinePlot","[","l","]"}],"\n","\n","\n","\n","\n"}]}],
+"Input",ExpressionUUID -> "d2b2cf25-f9b4-405d-89ad-f18654576c7e",CellLabel -> "In[23]:= "],Cell[
+BoxData[
+GraphicsBox[{{},{{{},{},{Hue[0.67,0.6,0.6],Directive[PointSize[NCache[Rational[7,
+360],0.019444444444444445]],RGBColor[0.368417,0.506779,0.709798],AbsoluteThickness[
+1.6]],LineBox[CompressedData["1:eJxTTMoPSmViYGBQBGIQDQEf7FdPv59p9HitPVTA4fH99BgLgUP7IVwOh/dcxspFBVehfAGHpxeUbv+sewDlizhsFaz4mjL3KZQv4aD+cO514/svoXwZh9W/Wt98k3gL5Ss4GCa7NB7SfA/lKzkE2doda/wD46s4zNhhcf9sB4yv5pD7/PfKj5dg+jUcykWD6oLevoLytRy073yaOOXLMyhfx+Ehh6F0r+AjKF/PYSOb5kurNzegfAOHi7s7FP/nnoTyDR0YUIARTB4aHsYw/VC+Ccx8KN8UZj+UbwZzH5RvDnM/lG8B8x+UbwnzP5RvBQsfKN8aFn5Qvg0sfKF8W1j4Q/l2sPiB8u1h8QflO8DiF8JvcHCAxv9+AFnmpdQ="]]}},{{Directive[
+PointSize[NCache[Rational[7,360],0.019444444444444445]],RGBColor[0.368417,0.506779,
+0.709798],AbsoluteThickness[1.6]]}},{{Directive[PointSize[NCache[Rational[7,360],
+0.019444444444444445]],RGBColor[0.368417,0.506779,0.709798],AbsoluteThickness[1.6]]},{}},{{Directive[
+PointSize[NCache[Rational[7,360],0.019444444444444445]],RGBColor[0.368417,0.506779,
+0.709798],AbsoluteThickness[1.6]]},{}}},{{},{}}},DisplayFunction -> Identity,DisplayFunction -> Identity,
+AspectRatio -> NCache[Power[GoldenRatio,-1],0.6180339887498948],Axes -> {True,True},
+AxesLabel -> {None,None},AxesOrigin -> {0.0,0},RuleDelayed[DisplayFunction,Identity],
+Frame -> {{False,False},{False,False}},FrameLabel -> {{None,None},{None,None}},FrameTicks -> {{Automatic,Automatic},{Automatic,Automatic}},
+GridLines -> {None,None},GridLinesStyle -> Directive[GrayLevel[0.5,0.4]],Method -> CompressedData[
+"1:eJzlkDELwjAQhWNxcHMQ3P0tFUFQLG1xj+YKhzEXkstQf71JhUiluDm5HJeX7707bnOhuiuEEH4eywE9v1910NCsYnOyjHd8QKWJj9LdwPkBaF2AD3wdm5LIKTSSwbdEOrnJ+K9TlrHZorda9rtgrsnQzRKxiCUr44T0PwFlZa/AMHL/UpKtifvjYMtJlXQ8AWAO/9mEYkTlW5dkEdRZ6gD/dIknqvCFRg=="],
+PlotRange -> {{0.0,33.0},{-0.9995736,0.9995736}},PlotRangeClipping -> True,PlotRangePadding -> {{Scaled[
+0.02],Scaled[0.02]},{Scaled[0.05],Scaled[0.05]}},Ticks -> {Automatic,Automatic},ExpressionUUID -> "85923968-136b-4b48-bb36-e5f892fc6ba8"],
+StandardForm],"Output",ExpressionUUID -> "c685cd0d-8e41-42d0-84a5-80bdae5ed888",CellLabel -> "Out[24]= "]},
+Open],ExpressionUUID -> "6761c0b5-bb7e-4703-af7b-d6428c882991"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "12. for Wolfram Cloud 1.54.0.1 (January 17, 2020)"]

@@ -1,0 +1,140 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5305,        130]
+NotebookOptionsPosition[      4289,        106]
+NotebookOutlinePosition[      4633,        121]
+CellTagsIndexPosition[      4590,        118]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{"\"\<Ejercicio 1\>\"", "\[IndentingNewLine]", "\"\<A partir de \
+esto use Range,Reverse y Join para crear la lista {1,2,3,4,4,3,2,1}.\>\"", "\
+\[IndentingNewLine]", 
+ RowBox[{"Join", "[", 
+  RowBox[{
+   RowBox[{"Range", "[", "4", "]"}], ",", 
+   RowBox[{"Reverse", "[", 
+    RowBox[{"Range", "[", "4", "]"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7920635128942585`*^9, 3.7920636103438582`*^9}},
+ CellLabel->
+  "In[1049]:=",ExpressionUUID->"d70b1b9a-9f25-4e13-b3a2-1924d85ce2b0"],
+
+Cell[BoxData["\<\"Ejercicio 1\"\>"], "Output",
+ CellChangeTimes->{3.7920636180120215`*^9},
+ CellLabel->
+  "Out[1049]=",ExpressionUUID->"ee889c7d-0fae-46db-b3d1-78f483a8cc87"],
+
+Cell[BoxData["\<\"A partir de esto use Range,Reverse y Join para crear la \
+lista {1,2,3,4,4,3,2,1}.\"\>"], "Output",
+ CellChangeTimes->{3.792063618069029*^9},
+ CellLabel->
+  "Out[1050]=",ExpressionUUID->"a83ffe4e-2b62-43ea-a055-a681222d9bf7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "2", ",", "3", ",", "4", ",", "4", ",", "3", ",", "2", ",", "1"}],
+   "}"}]], "Output",
+ CellChangeTimes->{3.7920636180922832`*^9},
+ CellLabel->
+  "Out[1051]=",ExpressionUUID->"d01ca6b5-61d4-49c5-affd-e9388dc811c8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{"\"\<Ejercicio  2\>\"", "\[IndentingNewLine]", 
+ RowBox[{"\"\<A partir de esto cree una lista de n\[UAcute]meros \
+sucesivos(con Range) con una longitud aleatoria de hasta 10 entradas.\>\"", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Range", "[", 
+  RowBox[{"RandomInteger", "[", "10", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7920636277427106`*^9, 3.7920637573816347`*^9}, {
+  3.792063809283292*^9, 3.7920639694083376`*^9}, {3.792064041400202*^9, 
+  3.7920641970200996`*^9}, {3.792064229376052*^9, 3.7920642956428757`*^9}, {
+  3.792064338165561*^9, 3.792064442692698*^9}},
+ CellLabel->
+  "In[1136]:=",ExpressionUUID->"d226fab9-b84c-4bca-9062-7319cc660622"],
+
+Cell[BoxData["\<\"Ejercicio  2\"\>"], "Output",
+ CellChangeTimes->{
+  3.792063765336794*^9, {3.792063798037834*^9, 3.792063844644186*^9}, 
+   3.792063875245142*^9, 3.7920639277617354`*^9, {3.7920639591876063`*^9, 
+   3.7920639767583003`*^9}, {3.792064096351704*^9, 3.7920641397280407`*^9}, 
+   3.7920642042672033`*^9, 3.792064240882572*^9, {3.7920643002165775`*^9, 
+   3.792064392401402*^9}, {3.7920644252165036`*^9, 3.7920644535576353`*^9}},
+ CellLabel->
+  "Out[1136]=",ExpressionUUID->"4fd3230c-63bb-4d1a-9f9d-df658b7df742"],
+
+Cell[BoxData["\<\"A partir de esto cree una lista de n\[UAcute]meros \
+sucesivos(con Range) con una longitud aleatoria de hasta 10 entradas.\"\>"], \
+"Output",
+ CellChangeTimes->{
+  3.792063765336794*^9, {3.792063798037834*^9, 3.792063844644186*^9}, 
+   3.792063875245142*^9, 3.7920639277617354`*^9, {3.7920639591876063`*^9, 
+   3.7920639767583003`*^9}, {3.792064096351704*^9, 3.7920641397280407`*^9}, 
+   3.7920642042672033`*^9, 3.792064240882572*^9, {3.7920643002165775`*^9, 
+   3.792064392401402*^9}, {3.7920644252165036`*^9, 3.792064453581046*^9}},
+ CellLabel->
+  "Out[1137]=",ExpressionUUID->"bec642b1-96ed-4dc4-89ee-08b900b85f4d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.792063765336794*^9, {3.792063798037834*^9, 3.792063844644186*^9}, 
+   3.792063875245142*^9, 3.7920639277617354`*^9, {3.7920639591876063`*^9, 
+   3.7920639767583003`*^9}, {3.792064096351704*^9, 3.7920641397280407`*^9}, 
+   3.7920642042672033`*^9, 3.792064240882572*^9, {3.7920643002165775`*^9, 
+   3.792064392401402*^9}, {3.7920644252165036`*^9, 3.792064453602917*^9}},
+ CellLabel->
+  "Out[1138]=",ExpressionUUID->"67dbaf52-79a8-4454-bbdf-27f9bef54800"]
+}, Open  ]]
+},
+WindowSize->{681, 709},
+WindowMargins->{{Automatic, 91}, {Automatic, 109}},
+FrontEndVersion->"12.0 para Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 503, 10, 102, "Input",ExpressionUUID->"d70b1b9a-9f25-4e13-b3a2-1924d85ce2b0"],
+Cell[1086, 34, 174, 3, 32, "Output",ExpressionUUID->"ee889c7d-0fae-46db-b3d1-78f483a8cc87"],
+Cell[1263, 39, 243, 4, 32, "Output",ExpressionUUID->"a83ffe4e-2b62-43ea-a055-a681222d9bf7"],
+Cell[1509, 45, 267, 7, 32, "Output",ExpressionUUID->"d01ca6b5-61d4-49c5-affd-e9388dc811c8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1813, 57, 696, 11, 121, "Input",ExpressionUUID->"d226fab9-b84c-4bca-9062-7319cc660622"],
+Cell[2512, 70, 526, 8, 32, "Output",ExpressionUUID->"4fd3230c-63bb-4d1a-9f9d-df658b7df742"],
+Cell[3041, 80, 636, 10, 52, "Output",ExpressionUUID->"bec642b1-96ed-4dc4-89ee-08b900b85f4d"],
+Cell[3680, 92, 593, 11, 89, "Output",ExpressionUUID->"67dbaf52-79a8-4454-bbdf-27f9bef54800"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
