@@ -13,9 +13,9 @@ Para los que quieran revisar el método de conversión de número binario a deci
 https://github.com/CarlosManuelRodr/MetNum-UV/raw/master/Notas/conversion_binario_Hamming.pdf
 
 ## Tarea vigente:
-Tarea 3.
-Fecha de entrega: 12/Marzo
+Tarea 4.
+Fecha de entrega: 19/Marzo
 
 Pueden encontrar la descripción de la tarea aquí:
 
-https://github.com/CarlosManuelRodr/MetNum-UV/raw/master/Tareas/Tarea_3.pdf
+https://github.com/CarlosManuelRodr/MetNum-UV/raw/master/Tareas/Tarea4.pdf
