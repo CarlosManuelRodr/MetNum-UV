@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    135350,       2293]
-NotebookOptionsPosition[    134459,       2272]
-NotebookOutlinePosition[    134794,       2287]
-CellTagsIndexPosition[    134751,       2284]
+NotebookDataLength[    135749,       2298]
+NotebookOptionsPosition[    134857,       2277]
+NotebookOutlinePosition[    135192,       2292]
+CellTagsIndexPosition[    135149,       2289]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2262,16 +2262,21 @@ se encuentre una cura para el virus.
 
 El proyecto consiste en encontrar una combinaci\[OAcute]n de \
 par\[AAcute]metros \[Alpha] y \[Beta] que produzcan \[OAcute]rbitas estables. \
-Demostrar la estabilidad por medio del an\[AAcute]lisis del exponente de \
-Lyapunov.\
+Crear una manipulaci\[OAcute]n interactiva donde se puedan cambiar las \
+poblaciones iniciales y los par\[AAcute]metros \[Alpha], \[Beta], \[Gamma], \
+\[Delta].\
 \>", "Text",
- CellChangeTimes->{{3.793378984187223*^9, 
-  3.7933792043867893`*^9}},ExpressionUUID->"b703d190-9263-4a43-bf53-\
+ CellChangeTimes->{{3.793378984187223*^9, 3.7933792043867893`*^9}, {
+   3.793397434907597*^9, 3.793397466258911*^9}, {3.793397712481249*^9, 
+   3.7933978313682547`*^9}, {3.793397861815884*^9, 3.793397977638812*^9}, 
+   3.793398025092568*^9, {3.793398100939596*^9, 3.7933981048995867`*^9}, {
+   3.793398137763357*^9, 3.7933981626429253`*^9}, {3.79339822173839*^9, 
+   3.7933982419780807`*^9}},ExpressionUUID->"b703d190-9263-4a43-bf53-\
 7836c1050bb7"]
 }, Open  ]]
 },
 WindowSize->{808, 753},
-WindowMargins->{{Automatic, 502}, {98, Automatic}},
+WindowMargins->{{Automatic, 502}, {24, Automatic}},
 FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
@@ -2293,7 +2298,7 @@ Cell[1562, 43, 4729, 82, 124, "Input",ExpressionUUID->"72771f43-b4be-44bf-98ab-7
 Cell[6294, 127, 1112, 21, 204, "Text",ExpressionUUID->"35b01eb9-7964-4b3b-b28d-a902e93a309a"],
 Cell[7409, 150, 606, 11, 156, "Text",ExpressionUUID->"1e17c8b5-1d0f-4be8-bf2b-73034831b225"],
 Cell[8018, 163, 125711, 2090, 367, "Input",ExpressionUUID->"7f383ae2-a03b-4d8f-8bf1-e2b036488bdc"],
-Cell[133732, 2255, 711, 14, 156, "Text",ExpressionUUID->"b703d190-9263-4a43-bf53-7836c1050bb7"]
+Cell[133732, 2255, 1109, 19, 180, "Text",ExpressionUUID->"b703d190-9263-4a43-bf53-7836c1050bb7"]
 }, Open  ]]
 }
 ]
